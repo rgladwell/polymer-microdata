@@ -1,0 +1,9 @@
+language: node_js
+node_js: 8
+addons:
+  firefox: latest
+before_install:
+  - "npm install -g polymer-cli"
+  - "polymer install"
+script:
+  - xvfb-run polymer test -l firefox

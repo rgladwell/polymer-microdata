@@ -1,4 +1,4 @@
-# polymer-microdata
+# polymer-microdata [![Build Status](https://travis-ci.org/rgladwell/polymer-microdata.svg?branch=master)](https://travis-ci.org/rgladwell/polymer-microdata)
 
 Polymer mixin to support microdata properties.
 
