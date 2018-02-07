@@ -1,0 +1,33 @@
+{
+  "name": "polymer-microdata",
+  "description": "Polymer mixin to support microdata properties.",
+  "main": "polymer-microdata.js",
+  "author": {
+    "name": "Ricardo Gladwell",
+    "email": "ricardo@gladwell.me",
+    "url": "https://gladwell.me/"
+  },
+  "license": "MIT",
+  "keywords": [
+    "polymer",
+    "polymer2",
+    "microdata",
+    "mixin",
+    "html"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^2.5.0",
+    "microtesia.js": "^0.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "^6.5.0"
+  }
+}

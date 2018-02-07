@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>polymer-microdata test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="test-microdata.html">
+  </head>
+  <body>
+
+    <test-fixture id="SimpleMicrodataTestFixture">
+      <template>
+
+        <test-microdata itemscope prop="normal-prop">
+          <p itemprop="name">simple-test</p>
+        </test-microdata>
+
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('polymer-microdata', () => {
+
+        test('does not delete normal custom element properties', () => {
+          const element = fixture('SimpleMicrodataTestFixture');
+          assert.equal(element.prop, 'normal-prop');
+        });
+
+        test('sets simple microdata property', () => {
+          const element = fixture('SimpleMicrodataTestFixture');
+          assert.equal(element.name, 'simple-test');
+        });
+
+        test('displays simple microdata property', () => {
+          const element = fixture('SimpleMicrodataTestFixture');
+          const elementShadowRoot = element.shadowRoot;
+          const elementHeader = elementShadowRoot.querySelector('#name');
+          assert.equal(elementHeader.innerHTML, 'simple-test');
+        });
+
+      });
+    </script>
+
+  </body>
+</html>
