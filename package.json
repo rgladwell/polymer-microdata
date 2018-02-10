@@ -1,6 +1,6 @@
 {
   "name": "polymer-microdata",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Polymer mixin to support microdata properties.",
   "main": "polymer-microdata.js",
   "keywords": [

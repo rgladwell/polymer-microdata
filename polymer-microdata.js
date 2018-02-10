@@ -8,10 +8,7 @@ Microdata.Mixin = Polymer.dedupingMixin(function(superClass) {
       if(super.connectedCallback()) super.connectedCallback();
 
       const microdata = parseMicrodata(this)[0];
-
-      for (const property in microdata) {
-        this[property] = microdata[property];
-      }
+      Object.assign(this, microdata);
     }
 
   }

@@ -1,6 +1,7 @@
 {
   "name": "polymer-microdata",
   "description": "Polymer mixin to support microdata properties.",
+  "version": "0.0.1",
   "main": "polymer-microdata.js",
   "author": {
     "name": "Ricardo Gladwell",
