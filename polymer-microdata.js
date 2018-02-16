@@ -8,7 +8,19 @@ Microdata.Mixin = Polymer.dedupingMixin(function(superClass) {
       if(super.connectedCallback()) super.connectedCallback();
 
       const microdata = parseMicrodata(this)[0];
-      Object.assign(this, microdata);
+
+      for (const name in microdata) {
+        const value = microdata[name];
+        const property = this.constructor.properties[name];
+
+        this[name] = value;
+
+        if(property === Array || property.type === Array) {
+          if(!Array.isArray(value)) {
+            this[name] = [value];
+          }
+        }
+      }
     }
 
   }

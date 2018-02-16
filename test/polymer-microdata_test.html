@@ -10,6 +10,7 @@
     <script src="../../web-component-tester/browser.js"></script>
 
     <link rel="import" href="test-microdata.html">
+    <link rel="import" href="test-microdata-with-simple-array-type.html">
   </head>
   <body>
 
@@ -19,6 +20,37 @@
         <test-microdata itemscope prop="normal-prop">
           <p itemprop="name">simple-test</p>
         </test-microdata>
+
+      </template>
+    </test-fixture>
+
+    <test-fixture id="ArrayMicrodataTestFixture">
+      <template>
+
+        <test-microdata itemscope>
+          <p itemprop="array">array-value1</p>
+          <p itemprop="array">array-value2</p>
+        </test-microdata>
+
+      </template>
+    </test-fixture>
+
+    <test-fixture id="SingleArrayMicrodataTestFixture">
+      <template>
+
+        <test-microdata itemscope>
+          <p itemprop="array">array-value</p>
+        </test-microdata>
+
+      </template>
+    </test-fixture>
+
+    <test-fixture id="SimpleArrayTypeMicrodataTestFixture">
+      <template>
+
+        <test-microdata-with-simple-array-type itemscope>
+          <p itemprop="array">array-value</p>
+        </test-microdata-with-simple-array-type>
 
       </template>
     </test-fixture>
@@ -41,6 +73,21 @@
           const elementShadowRoot = element.shadowRoot;
           const elementHeader = elementShadowRoot.querySelector('#name');
           assert.equal(elementHeader.innerHTML, 'simple-test');
+        });
+
+        test('sets array-typed properties', () => {
+          const element = fixture('ArrayMicrodataTestFixture');
+          assert.deepEqual(element.array, ['array-value1', 'array-value2']);
+        });
+
+        test('converts single value to array for array-typed properties', () => {
+          const element = fixture('SingleArrayMicrodataTestFixture');
+          assert.isOk(Array.isArray(element.array));
+        });
+
+        test('converts single value to array for simple array-typed properties', () => {
+          const element = fixture('SimpleArrayTypeMicrodataTestFixture');
+          assert.isOk(Array.isArray(element.array));
         });
 
       });

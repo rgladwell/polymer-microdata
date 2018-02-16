@@ -1,0 +1,26 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<dom-module id="test-microdata-with-simple-array-type">
+
+  <template>
+  </template>
+
+  <link rel="import" href="../polymer-microdata.html">
+
+  <script>
+    class TestMicrodataWithSimpleArrayType extends Microdata.Mixin(Polymer.Element) {
+
+      static get is() { return 'test-microdata-with-simple-array-type' }
+
+      static get properties() {
+        return {
+          array: Array
+        }
+      }
+    }
+
+    customElements.define(TestMicrodataWithSimpleArrayType.is, TestMicrodataWithSimpleArrayType);
+
+  </script>
+
+</dom-module>
