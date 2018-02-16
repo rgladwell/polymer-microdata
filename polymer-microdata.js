@@ -7,18 +7,22 @@ Microdata.Mixin = Polymer.dedupingMixin(function(superClass) {
     connectedCallback() {
       if(super.connectedCallback()) super.connectedCallback();
 
+      function filterProperty(property, value) {
+        if((property === Array || property.type === Array) && !Array.isArray(value)) {
+          return [value];
+        } else {
+          return value;
+        }
+      }
+
       const microdata = parseMicrodata(this)[0];
 
       for (const name in microdata) {
         const value = microdata[name];
         const property = this.constructor.properties[name];
 
-        this[name] = value;
-
-        if(property === Array || property.type === Array) {
-          if(!Array.isArray(value)) {
-            this[name] = [value];
-          }
+        if(property) {
+          this[name] = filterProperty(property, value);
         }
       }
     }

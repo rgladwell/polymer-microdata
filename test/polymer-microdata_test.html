@@ -19,6 +19,7 @@
 
         <test-microdata itemscope prop="normal-prop">
           <p itemprop="name">simple-test</p>
+          <p itemprop="undeclared">should-not-set</p>
         </test-microdata>
 
       </template>
@@ -66,6 +67,11 @@
         test('sets simple microdata property', () => {
           const element = fixture('SimpleMicrodataTestFixture');
           assert.equal(element.name, 'simple-test');
+        });
+
+        test('hides properties undeclared in element', () => {
+          const element = fixture('SimpleMicrodataTestFixture');
+          assert.isNotOk(element.undeclared);
         });
 
         test('displays simple microdata property', () => {
