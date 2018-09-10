@@ -5,7 +5,7 @@ Polymer mixin to support microdata properties.
 To install polymer-microdata in your Polymer project run the following:
 
 ```sh
-> bower install polymer-microdata --save
+> npm install polymer-microdata --save
 ```
 
 You can then decorate your custom elements as follows:
@@ -61,13 +61,11 @@ To modify `polymer-microdata` you need the following installed:
 
   * [Node](https://nodejs.org/en/download/package-manager/)
   * [Polymer CLI](https://github.com/Polymer/polymer-cli#installation)
-  * [Polyserve](https://github.com/Polymer/polyserve#installation)
 
 Once you've cloned the repo run the following shell commands:
 
 ```shell
 > npm install
-> bower install
 ```
 
 You can run the tests as follows:
@@ -76,4 +74,4 @@ You can run the tests as follows:
 > polymer test -l chrome,firefox
 ```
 
-Or you can run the test suite in your browser by running `polyserve` and copy-and-pasting `http://127.0.0.1:8081/components/polymer-microdata/test/` into your address bar.
+Or you can run the test suite in your browser by running `polymer serve --open` and copy-and-pasting `http://127.0.0.1:8081/components/polymer-microdata/test/` into your address bar.

@@ -6,11 +6,11 @@
 
     <title>polymer-microdata test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../wct-browser-legacy/browser.js"></script>
 
-    <link rel="import" href="test-microdata.html">
-    <link rel="import" href="test-microdata-with-simple-array-type.html">
+    <script type="module" src="./test-microdata.js"></script>
+    <script type="module" src="./test-microdata-with-simple-array-type.js"></script>
   </head>
   <body>
 
@@ -56,48 +56,52 @@
       </template>
     </test-fixture>
 
-    <script>
-      suite('polymer-microdata', () => {
+    <script type="module">
 
-        test('does not delete normal custom element properties', () => {
-          const element = fixture('SimpleMicrodataTestFixture');
-          assert.equal(element.prop, 'normal-prop');
-        });
+import './test-microdata.js';
+import './test-microdata-with-simple-array-type.js';
 
-        test('sets simple microdata property', () => {
-          const element = fixture('SimpleMicrodataTestFixture');
-          assert.equal(element.name, 'simple-test');
-        });
+suite('polymer-microdata', () => {
 
-        test('hides properties undeclared in element', () => {
-          const element = fixture('SimpleMicrodataTestFixture');
-          assert.isNotOk(element.undeclared);
-        });
+  test('does not delete normal custom element properties', () => {
+    const element = fixture('SimpleMicrodataTestFixture');
+    assert.equal(element.prop, 'normal-prop');
+  });
 
-        test('displays simple microdata property', () => {
-          const element = fixture('SimpleMicrodataTestFixture');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('#name');
-          assert.equal(elementHeader.innerHTML, 'simple-test');
-        });
+  test('sets simple microdata property', () => {
+    const element = fixture('SimpleMicrodataTestFixture');
+    assert.equal(element.name, 'simple-test');
+  });
 
-        test('sets array-typed properties', () => {
-          const element = fixture('ArrayMicrodataTestFixture');
-          assert.deepEqual(element.array, ['array-value1', 'array-value2']);
-        });
+  test('hides properties undeclared in element', () => {
+    const element = fixture('SimpleMicrodataTestFixture');
+    assert.isNotOk(element.undeclared);
+  });
 
-        test('converts single value to array for array-typed properties', () => {
-          const element = fixture('SingleArrayMicrodataTestFixture');
-          assert.isOk(Array.isArray(element.array));
-        });
+  test('displays simple microdata property', () => {
+    const element = fixture('SimpleMicrodataTestFixture');
+    const elementShadowRoot = element.shadowRoot;
+    const elementHeader = elementShadowRoot.querySelector('#name');
+    assert.equal(elementHeader.innerHTML, 'simple-test');
+  });
 
-        test('converts single value to array for simple array-typed properties', () => {
-          const element = fixture('SimpleArrayTypeMicrodataTestFixture');
-          assert.isOk(Array.isArray(element.array));
-        });
+  test('sets array-typed properties', () => {
+    const element = fixture('ArrayMicrodataTestFixture');
+    assert.deepEqual(element.array, ['array-value1', 'array-value2']);
+  });
 
-      });
-    </script>
+  test('converts single value to array for array-typed properties', () => {
+    const element = fixture('SingleArrayMicrodataTestFixture');
+    assert.isOk(Array.isArray(element.array));
+  });
+
+  test('converts single value to array for simple array-typed properties', () => {
+    const element = fixture('SimpleArrayTypeMicrodataTestFixture');
+    assert.isOk(Array.isArray(element.array));
+  });
+
+});
+</script>
 
   </body>
 </html>

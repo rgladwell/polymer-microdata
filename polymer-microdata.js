@@ -1,6 +1,9 @@
+import { dedupingMixin } from '../@polymer/polymer/lib/utils/mixin.js';
+import '../microtesia.js/dist/microtesia.js';
+
 window.Microdata = window.Microdata || {};
 
-Microdata.Mixin = Polymer.dedupingMixin(function(superClass) {
+Microdata.Mixin = dedupingMixin(function(superClass) {
 
   return class extends superClass {
 
