@@ -60,7 +60,7 @@ This should render as:
 To modify `polymer-microdata` you need the following installed:
 
   * [Node](https://nodejs.org/en/download/package-manager/)
-  * [Polymer CLI](https://github.com/Polymer/polymer-cli#installation)
+  * [Polymer CLI](https://github.com/Polymer/tools/tree/master/packages/cli#installation)
 
 Once you've cloned the repo run the following shell commands:
 
