@@ -22,6 +22,7 @@
     "url": "https://gladwell.me/"
   },
   "devDependencies": {
+    "polymer-cli": "^1.8.0",
     "wct-browser-legacy": "^1.0.1"
   },
   "resolutions": {
@@ -33,5 +34,8 @@
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
     "microtesia.js": "^0.0.1"
+  },
+  "scripts": {
+    "test": "polymer test -l chrome,firefox"
   }
 }

@@ -71,7 +71,7 @@ Once you've cloned the repo run the following shell commands:
 You can run the tests as follows:
 
 ```shell
-> polymer test -l chrome,firefox
+> npm test
 ```
 
 Or you can run the test suite in your browser by running `polymer serve --open` and copy-and-pasting `http://127.0.0.1:8081/components/polymer-microdata/test/` into your address bar.
