@@ -1,5 +1,5 @@
 import { dedupingMixin } from '../@polymer/polymer/lib/utils/mixin.js';
-import '../microtesia.js/dist/microtesia.js';
+import '../microtesia.js/lib/microtesia.js';
 
 window.Microdata = window.Microdata || {};
 
