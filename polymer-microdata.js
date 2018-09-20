@@ -1,35 +1,31 @@
-import { dedupingMixin } from '../@polymer/polymer/lib/utils/mixin.js';
-import '../microtesia.js/lib/microtesia.js';
+import { dedupingMixin } from '../@polymer/polymer/lib/utils/mixin.js'
+import '../microtesia.js/lib/microtesia.js'
 
-window.Microdata = window.Microdata || {};
+let internalMicrodataMixin = (base) => class extends base {
 
-Microdata.Mixin = dedupingMixin(function(superClass) {
+  connectedCallback() {
+    if (super.connectedCallback()) super.connectedCallback()
 
-  return class extends superClass {
-
-    connectedCallback() {
-      if(super.connectedCallback()) super.connectedCallback();
-
-      function filterProperty(property, value) {
-        if((property === Array || property.type === Array) && !Array.isArray(value)) {
-          return [value];
-        } else {
-          return value;
-        }
-      }
-
-      const microdata = parseMicrodata(this)[0];
-
-      for (const name in microdata) {
-        const value = microdata[name];
-        const property = this.constructor.properties[name];
-
-        if(property) {
-          this[name] = filterProperty(property, value);
-        }
+    function filterProperty(property, value) {
+      if ((property === Array || property.type === Array) && !Array.isArray(value)) {
+        return [value]
+      } else {
+        return value
       }
     }
 
+    const microdata = parseMicrodata(this)[0]
+
+    for (const name in microdata) {
+      const value = microdata[name]
+      const property = this.constructor.properties[name]
+
+      if (property) {
+        this[name] = filterProperty(property, value)
+      }
+    }
   }
 
-})
+}
+
+export const MicrodataMixin = dedupingMixin(internalMicrodataMixin)

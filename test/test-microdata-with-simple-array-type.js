@@ -1,18 +1,13 @@
-import '../polymer-microdata.js';
-import { PolymerElement } from '../../@polymer/polymer/polymer-element.js';
+import { MicrodataMixin } from '../polymer-microdata.js'
+import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
 
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<dom-module id="test-microdata-with-simple-array-type">
-  <template>
-  </template>
-</dom-module>`;
-
-document.head.appendChild($_documentContainer.content);
-
-class TestMicrodataWithSimpleArrayType extends Microdata.Mixin(PolymerElement) {
+class TestMicrodataWithSimpleArrayType extends MicrodataMixin(PolymerElement) {
 
   static get is() { return 'test-microdata-with-simple-array-type' }
+
+  static get template() {
+    return html`<span id="name">{{name}}</span>`
+  }
 
   static get properties() {
     return {
@@ -22,4 +17,4 @@ class TestMicrodataWithSimpleArrayType extends Microdata.Mixin(PolymerElement) {
 
 }
 
-customElements.define(TestMicrodataWithSimpleArrayType.is, TestMicrodataWithSimpleArrayType);
+customElements.define(TestMicrodataWithSimpleArrayType.is, TestMicrodataWithSimpleArrayType)

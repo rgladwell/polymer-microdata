@@ -4,4 +4,6 @@ addons:
   firefox: latest
 before_install:
   - npm install -g polymer-cli
-script: xvfb-run polymer test -l firefox
+script:
+  - npm run lint
+  - xvfb-run polymer test -l firefox
