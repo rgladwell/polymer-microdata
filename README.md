@@ -10,34 +10,29 @@ To install polymer-microdata in your Polymer project run the following:
 
 You can then decorate your custom elements as follows:
 
-```html
-<dom-module id="my-microdata-element">
+```js
+import { MicrodataMixin } from '../polymer-microdata.js'
+import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
 
-<template>
-  <p>{{name}}</p>
-</template>
+class MyMicrodataElement extends MicrodataMixin(PolymerElement) {
 
-<link rel="import" href="../polymer-microdata.html">
+  static get is() { return 'my-microdata-element' }
 
-<script>
-  class MyMicrodataElement extends Microdata.Mixin(Polymer.Element) {
+  static get template() {
+    return html`<p>{{name}}</p>`
+  }
 
-    static get is() { return 'my-microdata-element' }
-
-    static get properties() {
-      return {
-        name: {
-          type: String
-        }
+  static get properties() {
+    return {
+      name: {
+        type: String
       }
     }
   }
+}
 
-  customElements.define(MyMicrodataElement.is, MyMicrodataElement);
+customElements.define(MyMicrodataElement.is, MyMicrodataElement)
 
-</script>
-
-</dom-module>
 ```
 
 You can then populate your element properties using microdata syntax as follows:
