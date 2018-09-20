@@ -42,7 +42,6 @@
     "microtesia.js": "^0.0.1"
   },
   "scripts": {
-    "lint": "polymer lint && eslint *.js test/*.js",
-    "test": "polymer test -l chrome,firefox"
+    "test": "polymer lint && eslint *.js test/*.js && polymer test -l chrome,firefox"
   }
 }
