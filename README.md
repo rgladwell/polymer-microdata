@@ -1,17 +1,17 @@
-# polymer-microdata [![Build Status](https://travis-ci.org/rgladwell/polymer-microdata.svg?branch=master)](https://travis-ci.org/rgladwell/polymer-microdata)
+# wcs-microdata [![Build Status](https://travis-ci.org/rgladwell/wcs-microdata.svg?branch=master)](https://travis-ci.org/rgladwell/wcs-microdata)
 
-Polymer mixin to support microdata properties.
+Web components mixin to support microdata properties.
 
-To install polymer-microdata in your Polymer project run the following:
+To install wcs-microdata run the following:
 
 ```sh
-> npm install polymer-microdata --save
+> npm install wcs-microdata --save
 ```
 
 You can then decorate your custom elements as follows:
 
 ```js
-import { MicrodataMixin } from '../polymer-microdata.js'
+import { MicrodataMixin } from '../wcs-microdata.js'
 import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
 
 class MyMicrodataElement extends MicrodataMixin(PolymerElement) {

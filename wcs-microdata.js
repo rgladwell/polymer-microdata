@@ -1,7 +1,6 @@
-import { dedupingMixin } from '../@polymer/polymer/lib/utils/mixin.js'
 import '../microtesia.js/lib/microtesia.js'
 
-let internalMicrodataMixin = (base) => class extends base {
+export const MicrodataMixin = (base) => class extends base {
 
   connectedCallback() {
     if (super.connectedCallback()) super.connectedCallback()
@@ -27,5 +26,3 @@ let internalMicrodataMixin = (base) => class extends base {
   }
 
 }
-
-export const MicrodataMixin = dedupingMixin(internalMicrodataMixin)

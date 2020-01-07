@@ -1,20 +1,22 @@
 {
-  "description": "Polymer mixin to support microdata properties.",
+  "description": "Web component mixin to support microdata properties.",
   "keywords": [
     "polymer",
     "polymer2",
+    "lit",
+    "lit-element",
     "microdata",
     "mixin",
     "html"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/rgladwell/polymer-microdata.git"
+    "url": "https://github.com/rgladwell/wcs-microdata.git"
   },
-  "homepage": "https://github.com/rgladwell/polymer-microdata",
-  "name": "polymer-microdata",
-  "version": "0.3.0",
-  "main": "polymer-microdata.js",
+  "homepage": "https://github.com/rgladwell/wcs-microdata",
+  "name": "wcs-microdata",
+  "version": "0.4.0",
+  "main": "wcs-microdata.js",
   "license": "MIT",
   "author": {
     "name": "Ricardo Gladwell",
@@ -22,6 +24,7 @@
     "url": "https://gladwell.me/"
   },
   "devDependencies": {
+    "@polymer/polymer": "^3.0.0",
     "eslint": "^5.6.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
@@ -38,8 +41,7 @@
     "type-detect": "1.0.0"
   },
   "dependencies": {
-    "@polymer/polymer": "^3.0.0",
-    "microtesia.js": "^0.0.1"
+    "microtesia.js": "^0.1.2"
   },
   "scripts": {
     "test": "polymer lint && eslint *.js test/*.js && polymer test -l chrome,firefox"

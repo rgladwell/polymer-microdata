@@ -1,4 +1,4 @@
-import { MicrodataMixin } from '../polymer-microdata.js'
+import { MicrodataMixin } from '../wcs-microdata.js'
 import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
 
 class TestMicrodata extends MicrodataMixin(PolymerElement) {
