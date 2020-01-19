@@ -18,7 +18,7 @@
       <template>
 
         <test-microdata itemscope prop="normal-prop">
-          <p itemprop="name">simple-test</p>
+          <p itemprop="name" id="itemprop">simple-test</p>
           <p itemprop="undeclared">should-not-set</p>
         </test-microdata>
 
@@ -102,6 +102,20 @@ suite('wcs-microdata', () => {
   test('converts single value to array for simple array-typed properties', () => {
     const element = fixture('SimpleArrayTypeMicrodataTestFixture');
     assert.isOk(Array.isArray(element.array));
+  });
+
+  test('updates microdata properties', () => {
+    const element = fixture('SimpleMicrodataTestFixture');
+    element.querySelector('#itemprop').textContent = 'modified-property';
+    element.performUpdate();
+    assert.equal(element.name, 'modified-property');
+  });
+
+  test('updates element content on microdata properties change', () => {
+    const element = fixture('SimpleMicrodataTestFixture');
+    element.querySelector('#itemprop').textContent = 'modified-property';
+    element.performUpdate();
+    assert.equal(element.shadowRoot.textContent, 'modified-property');
   });
 
 });

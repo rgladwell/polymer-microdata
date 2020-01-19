@@ -3,8 +3,16 @@ import '../microtesia.js/lib/microtesia.js'
 export const MicrodataMixin = (base) => class extends base {
 
   connectedCallback() {
-    if (super.connectedCallback()) super.connectedCallback()
+    if (super.connectedCallback) super.connectedCallback()
+    this.__updateMicrodata()
+  }
 
+  performUpdate() {
+    this.__updateMicrodata()
+    if (super.performUpdate) super.performUpdate()
+  }
+
+  __updateMicrodata() {
     function filterProperty(property, value) {
       if ((property === Array || property.type === Array) && !Array.isArray(value)) {
         return [value]
