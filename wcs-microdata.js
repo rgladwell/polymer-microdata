@@ -7,7 +7,9 @@ export const MicrodataMixin = (base) => class extends base {
 
     function filterProperty(property, value) {
       if ((property === Array || property.type === Array) && !Array.isArray(value)) {
-        return [value]
+        return JSON.stringify([value])
+      } else if (property === Array || property.type === Array || property === Object || property.type === Object) {
+        return JSON.stringify(value)
       } else {
         return value
       }
@@ -20,7 +22,7 @@ export const MicrodataMixin = (base) => class extends base {
       const property = this.constructor.properties[name]
 
       if (property) {
-        this[name] = filterProperty(property, value)
+        this.setAttribute(name, filterProperty(property, value))
       }
     }
   }
