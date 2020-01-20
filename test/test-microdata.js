@@ -1,27 +1,22 @@
 import { MicrodataMixin } from '../wcs-microdata.js'
-import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
+import { LitElement, html } from 'lit-element'
 
-class TestMicrodata extends MicrodataMixin(PolymerElement) {
+class TestMicrodata extends MicrodataMixin(LitElement) {
 
   static get is() { return 'test-microdata' }
 
-  static get template() {
-    return html`<span id="name">{{name}}</span>`
-  }
-
   static get properties() {
     return {
-      prop: {
-        type: String
-      },
-      name: {
-        type: String
-      },
-      array: {
-        type: Array
-      }
+      prop: String,
+      name: String,
+      array: Array
     }
   }
+
+  render() {
+    return html`<span id="name">${this.name}</span>`
+  }
+
 }
 
 customElements.define(TestMicrodata.is, TestMicrodata)

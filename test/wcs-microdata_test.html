@@ -80,9 +80,13 @@ suite('wcs-microdata', () => {
 
   test('displays simple microdata property', () => {
     const element = fixture('SimpleMicrodataTestFixture');
-    const elementShadowRoot = element.shadowRoot;
-    const elementHeader = elementShadowRoot.querySelector('#name');
-    assert.equal(elementHeader.innerHTML, 'simple-test');
+
+    flush(() => {
+      console.log(element.shadowRoot)
+      const name = element.shadowRoot.getElementById('name');
+      assert.equal(name.innerHTML, 'simple-test');
+      done();
+    });
   });
 
   test('sets array-typed properties', () => {

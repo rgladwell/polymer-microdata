@@ -1,18 +1,21 @@
 import { MicrodataMixin } from '../wcs-microdata.js'
-import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
+import { LitElement, html } from 'lit-element'
 
-class TestMicrodataWithSimpleArrayType extends MicrodataMixin(PolymerElement) {
+class TestMicrodataWithSimpleArrayType extends MicrodataMixin(LitElement) {
 
   static get is() { return 'test-microdata-with-simple-array-type' }
 
   static get template() {
-    return html`<span id="name">{{name}}</span>`
   }
 
   static get properties() {
     return {
       array: Array
     }
+  }
+
+  render() {
+    return html`<span id="name">${this.name}</span>`
   }
 
 }

@@ -12,15 +12,11 @@ You can then decorate your custom elements as follows:
 
 ```js
 import { MicrodataMixin } from '../wcs-microdata.js'
-import { PolymerElement, html } from '../../@polymer/polymer/polymer-element.js'
+import { LitElement, html } from 'lit-element'
 
-class MyMicrodataElement extends MicrodataMixin(PolymerElement) {
+class MyMicrodataElement extends MicrodataMixin(LitElement) {
 
   static get is() { return 'my-microdata-element' }
-
-  static get template() {
-    return html`<p>{{name}}</p>`
-  }
 
   static get properties() {
     return {
@@ -28,6 +24,10 @@ class MyMicrodataElement extends MicrodataMixin(PolymerElement) {
         type: String
       }
     }
+  }
+
+  render() {
+    return html`<span id="name">${this.name}</span>`
   }
 }
 
