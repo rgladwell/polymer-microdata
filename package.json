@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/rgladwell/wcs-microdata",
   "name": "wcs-microdata",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "wcs-microdata.js",
   "license": "MIT",
   "author": {
@@ -44,6 +44,7 @@
     "microtesia.js": "^0.1.2"
   },
   "scripts": {
-    "test": "polymer lint && eslint *.js test/*.js && polymer test -l chrome,firefox"
+    "test": "polymer lint && eslint *.js test/*.js && polymer test -l chrome,firefox",
+    "start": "polymer serve --open"
   }
 }
