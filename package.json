@@ -32,7 +32,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "lit-element": "^2.3.1",
     "polymer-cli": "^1.9.11",
-    "wct-browser-legacy": "^1.0.2"
+    "wct-browser-legacy": "^1.0.2",
+    "web-component-tester": "^6.9.2"
   },
   "resolutions": {
     "inherits": "2.0.3",
@@ -45,7 +46,7 @@
     "microtesia.js": "^0.1.2"
   },
   "scripts": {
-    "test": "polymer lint && eslint *.js test/*.js && polymer test -l chrome,firefox",
+    "test": "polymer lint && eslint *.js test/*.js && wct --npm -l chrome,firefox",
     "start": "polymer serve --open"
   }
 }

@@ -1,6 +1,5 @@
 language: node_js
-node_js: 10
-sudo: required
+node_js: node
 addons:
   firefox: latest
   chrome: stable
